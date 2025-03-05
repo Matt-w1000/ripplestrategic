@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  font-family: "Mulish", sans-serif;
+}
+
+.theme-logo {
+  filter: brightness(0) invert(0.1); /* Slightly lighter than pure black */
+}
+
+.dark .theme-logo {
+  filter: brightness(0) invert(1);
+}
+
+.custom-leading-1.5 {
+  line-height: 1.5;
+}
+
+@supports (backdrop-filter: blur(30px)) {
+  .backdrop-blur {
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+  }
+}
+
+@layer utilities {
+  .backdrop-blur-30 {
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+  }
+}
+
+/* Ensure backdrop-filter works in Safari */
+.backdrop-blur-safari {
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+}
+
